@@ -30,13 +30,15 @@ class _MainFoodPageState extends State<MainFoodPage> {
           Container(
             //Status Header Section
             child: Container(
-              margin: const EdgeInsets.only(top: 45, bottom: 15),
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              margin: EdgeInsets.only(
+                  top: scaleHeight(45), bottom: scaleHeight(15)),
+              padding: EdgeInsets.symmetric(horizontal: scaleWidth(20)),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       BigText(text: 'Nigeria', color: AppColors.mainColor),
                       Row(
@@ -52,15 +54,16 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ),
                   Center(
                     child: Container(
-                      width: scaleHeight(45),
+                      width: scaleWidth(45),
                       height: scaleHeight(45),
                       decoration: BoxDecoration(
-                          color: AppColors.mainColor,
-                          borderRadius: BorderRadius.circular(15)),
+                        color: AppColors.mainColor,
+                        borderRadius: BorderRadius.circular(scaleHeight(15)),
+                      ),
                       child: Icon(
                         Icons.search,
                         color: Colors.white,
-                        size: scaleHeight(20),
+                        size: scaleHeight(24),
                       ),
                     ),
                   ),
@@ -68,18 +71,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
-          const FoodPage(),
-          SizedBox(
-            height: scaleHeight(50),
-          ),
-          Center(
-            child: Text(
-              'Hello',
-              style: TextStyle(
-                fontSize: scaleHeight(150),
-              ),
+          const Expanded(
+            child: SingleChildScrollView(
+              child: FoodPage(),
             ),
-          )
+          ),
         ],
       ),
     );
