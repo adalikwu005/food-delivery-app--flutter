@@ -1,8 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/home/food_page.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
+import 'package:get/get.dart';
+
+import '../utils/dimensions.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -14,6 +19,11 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
+    // print('current height is ' + MediaQuery.of(context).size.height.toString());
+    // print('current Width is ' + MediaQuery.of(context).size.width.toString());
+    // print('current Getx - Height is ' + Get.context!.height.toString());
+    // print('current Getx - Width is ' + Get.context!.width.toString());
+
     return Scaffold(
       body: Column(
         children: [
@@ -42,14 +52,15 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ),
                   Center(
                     child: Container(
-                      width: 45,
-                      height: 45,
+                      width: scaleHeight(45),
+                      height: scaleHeight(45),
                       decoration: BoxDecoration(
                           color: AppColors.mainColor,
                           borderRadius: BorderRadius.circular(15)),
-                      child: const Icon(
+                      child: Icon(
                         Icons.search,
                         color: Colors.white,
+                        size: scaleHeight(20),
                       ),
                     ),
                   ),
@@ -58,6 +69,17 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
           const FoodPage(),
+          SizedBox(
+            height: scaleHeight(50),
+          ),
+          Center(
+            child: Text(
+              'Hello',
+              style: TextStyle(
+                fontSize: scaleHeight(150),
+              ),
+            ),
+          )
         ],
       ),
     );
