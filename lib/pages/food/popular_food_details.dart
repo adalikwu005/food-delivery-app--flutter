@@ -45,7 +45,7 @@ class PopularFoodDetails extends StatelessWidget {
           ),
           //Description Area
           Positioned(
-            top: scaleHeight(350 - 30),
+            top: scaleHeight(300),
             right: 0,
             left: 0,
             bottom: 0,
@@ -104,16 +104,16 @@ class PopularFoodDetails extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        height: scaleHeight(120),
+        height: scaleHeight(100),
         padding: EdgeInsets.symmetric(
-          horizontal: scaleWidth(20),
-          vertical: scaleHeight(30),
+          horizontal: scaleWidth(15),
+          vertical: scaleHeight(15),
         ),
         decoration: BoxDecoration(
           color: AppColors.buttonBackgroundColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(scaleHeight(30)),
-            topRight: Radius.circular(scaleHeight(30)),
+            topLeft: Radius.circular(scaleHeight(20)),
+            topRight: Radius.circular(scaleHeight(20)),
           ),
         ),
         child: Row(
@@ -121,7 +121,7 @@ class PopularFoodDetails extends StatelessWidget {
           children: [
             //Remove and Add Button
             Container(
-              padding: EdgeInsets.all(scaleHeight(20)),
+              padding: EdgeInsets.all(scaleHeight(15)),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(scaleWidth(20))),
@@ -149,7 +149,7 @@ class PopularFoodDetails extends StatelessWidget {
             ),
             //Add to Cart Button
             Container(
-              padding: EdgeInsets.all(scaleHeight(20)),
+              padding: EdgeInsets.all(scaleHeight(15)),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(scaleWidth(20)),
                   color: AppColors.mainColor),
