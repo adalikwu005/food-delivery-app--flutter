@@ -1,13 +1,12 @@
-import 'dart:ui';
+// ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/home/food_page.dart';
+import 'package:food_delivery_app/pages/home/food_page.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
-import 'package:get/get.dart';
 
-import '../utils/dimensions.dart';
+import '../../utils/dimensions.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -19,11 +18,6 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
-    // print('current height is ' + MediaQuery.of(context).size.height.toString());
-    // print('current Width is ' + MediaQuery.of(context).size.width.toString());
-    // print('current Getx - Height is ' + Get.context!.height.toString());
-    // print('current Getx - Width is ' + Get.context!.width.toString());
-
     return Scaffold(
       body: Column(
         children: [
@@ -42,6 +36,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     children: [
                       BigText(text: 'Nigeria', color: AppColors.mainColor),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SmallText(
                             text: 'Calabar',

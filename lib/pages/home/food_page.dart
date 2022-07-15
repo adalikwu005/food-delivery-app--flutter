@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
+import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/icon_and_text.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
@@ -20,7 +21,7 @@ class _FoodPageState extends State<FoodPage> {
   //control scalable height fror PageView page (Zoom in and Zoom out)
   var _currentPageValue = 0.0;
   final double _scaleFactor = 0.8;
-  final double _height = Dimensions.pageViewContainer;
+  final double _height = scaleHeight(320);
 
   @override
   void initState() {
@@ -43,8 +44,8 @@ class _FoodPageState extends State<FoodPage> {
     return Column(
       children: [
         //Slider Section
-        Container(
-          height: Dimensions.pageView,
+        SizedBox(
+          height: scaleHeight(320),
           child: PageView.builder(
               itemCount: 5,
               controller: pageController,
@@ -73,12 +74,10 @@ class _FoodPageState extends State<FoodPage> {
             children: [
               BigText(text: 'Popular'),
               SizedBox(width: scaleWidth(10)),
-              Container(
-                child: BigText(
-                  text: '.',
-                  size: scaleHeight(30),
-                  color: AppColors.titleColor,
-                ),
+              BigText(
+                text: '.',
+                size: scaleHeight(30),
+                color: AppColors.titleColor,
               ),
               SizedBox(width: scaleWidth(10)),
               Container(
@@ -91,11 +90,11 @@ class _FoodPageState extends State<FoodPage> {
         ),
         SizedBox(width: scaleWidth(10)),
         //List of food and images
-        Container(
+        SizedBox(
           height: scaleHeight(700),
           child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
-              //shrinkWrap: true,
+              shrinkWrap: true,
               itemCount: 10,
               itemBuilder: ((context, index) {
                 return Container(
@@ -215,7 +214,7 @@ class _FoodPageState extends State<FoodPage> {
       child: Stack(
         children: [
           Container(
-            height: Dimensions.pageViewContainer,
+            height: scaleHeight(220),
             margin: EdgeInsets.symmetric(horizontal: scaleWidth(10)),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(scaleHeight(30)),
@@ -235,7 +234,7 @@ class _FoodPageState extends State<FoodPage> {
                   left: scaleHeight(30),
                   right: scaleHeight(30),
                   bottom: scaleHeight(30)),
-              height: scaleHeight(130),
+              height: scaleHeight(120),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
@@ -259,69 +258,8 @@ class _FoodPageState extends State<FoodPage> {
                     left: scaleWidth(15),
                     top: scaleHeight(15),
                     right: scaleWidth(15)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //Food Name Label
-                    BigText(
-                      text: 'Bitter Organge Marinade',
-                      size: scaleHeight(18),
-                    ),
-                    SizedBox(height: scaleHeight(10)),
-
-                    //Rating && Comment Section
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(
-                            5,
-                            (index) => Icon(
-                              Icons.star,
-                              color: AppColors.mainColor,
-                              size: scaleHeight(15),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: scaleHeight(10)),
-                        SmallText(text: '4.5'),
-                        SizedBox(width: scaleHeight(10)),
-                        SmallText(text: '1287'),
-                        SizedBox(width: scaleHeight(10)),
-                        SmallText(text: 'comments'),
-                      ],
-                    ),
-                    //SizedBox(height: Dimensions.height10),
-                    SizedBox(height: scaleHeight(20)),
-
-                    //Time && Distance
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndText(
-                          icon: Icons.circle_sharp,
-                          text: 'Normal',
-                          color: AppColors.mainBlackColor,
-                          iconColor: AppColors.iconColor1,
-                          iconSize: scaleHeight(20),
-                        ),
-                        IconAndText(
-                          icon: Icons.location_on,
-                          text: '1.7km',
-                          color: AppColors.mainBlackColor,
-                          iconColor: AppColors.mainColor,
-                          iconSize: scaleHeight(20),
-                        ),
-                        IconAndText(
-                          icon: Icons.access_time_rounded,
-                          text: '32min',
-                          color: AppColors.mainBlackColor,
-                          iconColor: AppColors.iconColor1,
-                          iconSize: scaleHeight(20),
-                        ),
-                      ],
-                    ),
-                  ],
+                child: const AppColumn(
+                  text: "Yummy Yummy Cake",
                 ),
               ),
             ),
